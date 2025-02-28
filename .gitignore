@@ -1,0 +1,8 @@
+.venv
+.env
+user_train.db
+user_train1.db
+all_id.txt
+fun_bd_2.py
+user_train1(1).db
+admin_router.py
