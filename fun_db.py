@@ -172,7 +172,7 @@ def work_with_file(name):
     for i in spis:
         stro = stro.replace(i, '#@##№')
     spis_rasp = stro.split('#@##№')
-    raspis = f'{spis_rasp[0]}@#@{spis_rasp[0]}@#@{spis_rasp[0]}@#@{spis_rasp[0]}@#@{spis_rasp[0]}@#@{spis_rasp[0]}@#@{spis_rasp[0]}'
+    raspis = f'{spis_rasp[0]}@#@{spis_rasp[1]}@#@{spis_rasp[2]}@#@{spis_rasp[3]}@#@{spis_rasp[4]}@#@{spis_rasp[5]}@#@{spis_rasp[6]}'
     return raspis
 
 
