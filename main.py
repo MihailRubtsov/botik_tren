@@ -23,6 +23,7 @@ days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sun
 days_t = ['Monday_t', 'Tuesday_t', 'Wednesday_t', 'Thursday_t', 'Friday_t', 'Saturday_t', 'Sunday_t']
 
 async def schedule_otpr():
+    pr = True
     while True:
         dday = day_now() # Порядковый номер дня недели для отправки
         moscow_time = datetime.now(pytz.timezone('Europe/Moscow'))
@@ -36,13 +37,17 @@ async def schedule_otpr():
         # обнуление в 0 
         if chass == 0 and minu == 0:
             if dday == 0:
-                obn_ned()
+                if pr:
+                    obn_ned()
+                    pr = False
                 obnul()
                 await bot.send_message('1120554354', f'произошёл переход на новую неделю')
             else:
                 obnul()
                 await bot.send_message('1120554354', f'произошел переход на новый день')
         else:
+            if pr == False:
+                pr = True
             data = get_data()
             for i in data:
                 if i[-1] == 1 and i[2] != 0:
@@ -51,7 +56,7 @@ async def schedule_otpr():
                     minu1 = int(vr[1])
                     if chass1 == chass and minu1 == minu:
                         rasp = get_train_day(i[1], i[3], dday)
-                        await bot.send_message(str(i[1]), f'Вот ваш сегодняшний план тренировок , неделя номер {i[3]}:\n{str(rasp)}')
+                        await bot.send_message(str(i[1]), f'Вот ваш сегодняшний план тренировок\n\nнеделя номер {i[3]}\n\nДень: {days[dday]}\n\n{str(rasp)}')
                         ism_na_nul(str(i[1])) 
 
         await asyncio.sleep(10) 

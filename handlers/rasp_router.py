@@ -107,7 +107,7 @@ async def sat_tr(message: types.Message, state: FSMContext):
 async def sun_tr(message: types.Message, state: FSMContext):
     await state.update_data(sun = message.text)
     data = await state.get_data()
-    raspis = f'{data['mon']}@#@{data['tue']}@#@{data['wed']}@#@{data['thu']}@#@{data['fri']}@#@{data['sat']}@#@{data['sun']}'
+    raspis = f"{data['mon']}@#@{data['tue']}@#@{data['wed']}@#@{data['thu']}@#@{data['fri']}@#@{data['sat']}@#@{data['sun']}"
     add_sched(int(message.from_user.id),raspis)
     await bot.send_message(message.from_user.id, 'Вы закончили заполнение расписания!', reply_markup=kebn())
     await state.clear()

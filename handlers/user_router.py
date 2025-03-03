@@ -2,7 +2,6 @@ from aiogram import Bot, types, Dispatcher, Router
 from aiogram.filters.command import Command
 from handlers.keybooards import kebad, kebn, kebv
 from dotenv import load_dotenv
-from fun_bd_2 import obnul
 import os
 from fun_db import *
 from aiogram.types import FSInputFile
@@ -84,6 +83,3 @@ async def template(message: types.Message):
 async def help(message: types.Message):
     sall = FSInputFile('salamchik.jpg')
     await bot.send_photo(message.from_user.id, sall)
-
-
-
