@@ -146,7 +146,7 @@ def watc_sched(id):
         k = 1
         for i in res:
             dni = i[2].split('@#@')
-            mn = f'\n\n№{k}\n\nMonday: {dni[0]}\n\nTuesday: {dni[1]}\n\nWednesday: {dni[2]}\n\nThursday: {dni[3]}\n\nFriday: {dni[4]}\n\nSaturday: {dni[5]}\n\nSanday:{ dni[6]}'
+            mn = f'\n\n№{k}\n\nMonday: {dni[0]}\n\nTuesday: {dni[1]}\n\nWednesday: {dni[2]}\n\nThursday: {dni[3]}\n\nFriday: {dni[4]}\n\nSaturday: {dni[5]}\n\nSunday: {dni[6]}'
             soob += mn
             k +=1
         return soob
@@ -158,7 +158,7 @@ def watch_ned(id, nom):
         cur.execute(f"""SELECT * FROM user_training WHERE id_tel = {id} AND nom_ned = {int(nom)}""")
         res = cur.fetchone()
         dni = res[2].split('@#@')
-        mn = f'Ваша тренировочная неделя №{nom}.\nMonday: {dni[0]}\n\nTuesday: {dni[1]}\n\nWednesday: {dni[2]}\n\nThursday: {dni[3]}\n\nFriday: {dni[4]}\n\nSaturday: {dni[5]}\n\nSanday:{dni[6]}'
+        mn = f'Ваша тренировочная неделя №{nom}.\nMonday: {dni[0]}\n\nTuesday: {dni[1]}\n\nWednesday: {dni[2]}\n\nThursday: {dni[3]}\n\nFriday: {dni[4]}\n\nSaturday: {dni[5]}\n\nSunday: {dni[6]}'
         return mn
 
 
@@ -168,7 +168,7 @@ def work_with_file(name):
     stro = ''.join(f[1:])
     stro = stro[:-2]
     stro = stro[7:]
-    spis = ['Monday(',')\nTuesday(',')\nWednesday(',')\nThursday(',')\nFriday(',')\nSaturday(',')@\nunday(']
+    spis = ['Monday(',')\nTuesday(',')\nWednesday(',')\nThursday(',')\nFriday(',')\nSaturday(',')\nSunday(']
     for i in spis:
         stro = stro.replace(i, '#@##№')
     spis_rasp = stro.split('#@##№')
